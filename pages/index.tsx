@@ -1,20 +1,28 @@
-import { Box, Button, Center, Container, Text, Heading, HStack, Icon, useBreakpointValue } from '@chakra-ui/react'
+import { Box, Button, Center, Container, Text, Heading, HStack, Icon, useBreakpointValue, SimpleGrid, Link, ButtonGroup, IconButton, useColorModeValue, useColorMode, Tooltip } from '@chakra-ui/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { topBar } from '../data/apps'
+import { topBar, cards } from '../data/apps'
+import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 export default function Home() {
   const shouldScroll = useBreakpointValue({ base: 'hidden', xs: 'scroll' })
+  const { colorMode, toggleColorMode } = useColorMode()
+
   return (
     <>
       <Box as="nav" w="100vw">
         <Container maxW="container.xl">
           <Center justifyContent="space-between" h="100%" py={5}>
             <Heading size="md">App launcher</Heading>
-            <a href='https://github.com/jacobhq/app-launcher'>
-              <Button>Star on github</Button>
-            </a>
+            <ButtonGroup>
+            <Tooltip label={'Set theme to'.concat(' ', colorMode === 'light' ? 'dark' : 'light')} aria-label={'Set theme to'.concat(' ', colorMode === 'light' ? 'dark' : 'light')}>
+              <IconButton variant="ghost" onClick={toggleColorMode} icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />} aria-label={'Set theme to'.concat(' ', colorMode === 'light' ? 'dark' : 'light')} />
+            </Tooltip>
+              <a href='https://github.com/jacobhq/app-launcher'>
+                <Button>Star on github</Button>
+              </a>
+            </ButtonGroup>
           </Center>
         </Container>
       </Box>
@@ -33,6 +41,27 @@ export default function Home() {
               </Box>
             )}
           </HStack>
+        </Container>
+      </Box>
+      <Box as="section" my={10}>
+        <Container maxW="container.xl">
+          <SimpleGrid spacing={6} px={8} columns={[1, null, 3]}>
+            {cards.map((i) => <Box key={i.id.toString()} p={6} borderWidth="1px" borderRadius={6} display="flex" justifyContent="space-between" flexDir="column">
+              <Box>
+                <Heading size="md" mb={2}>
+                  {i.title}
+                </Heading>
+                <Text>
+                  {i.description}
+                </Text>
+              </Box>
+              <Link mt={6} href={i.href} target="_blank">
+                <Button variant="link" colorScheme="blue">
+                  Visit
+                </Button>
+              </Link>
+            </Box>)}
+          </SimpleGrid>
         </Container>
       </Box>
     </>
