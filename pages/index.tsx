@@ -11,6 +11,9 @@ export default function Home() {
 
   return (
     <>
+    <Head>
+      <title>App launcher | JacobHQ</title>
+    </Head>
       <Box as="nav" w="100vw">
         <Container maxW="container.xl">
           <Center justifyContent="space-between" h="100%" py={5}>
