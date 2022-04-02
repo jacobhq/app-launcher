@@ -11,17 +11,17 @@ export default function Home() {
 
   return (
     <>
-    <Head>
-      <title>App launcher | JacobHQ</title>
-    </Head>
+      <Head>
+        <title>App launcher | JacobHQ</title>
+      </Head>
       <Box as="nav" w="100vw">
         <Container maxW="container.xl">
           <Center justifyContent="space-between" h="100%" py={5}>
             <Heading size="md">App launcher</Heading>
             <ButtonGroup>
-            <Tooltip label={'Set theme to'.concat(' ', colorMode === 'light' ? 'dark' : 'light')} aria-label={'Set theme to'.concat(' ', colorMode === 'light' ? 'dark' : 'light')}>
-              <IconButton variant="ghost" onClick={toggleColorMode} icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />} aria-label={'Set theme to'.concat(' ', colorMode === 'light' ? 'dark' : 'light')} />
-            </Tooltip>
+              <Tooltip label={'Set theme to'.concat(' ', colorMode === 'light' ? 'dark' : 'light')} aria-label={'Set theme to'.concat(' ', colorMode === 'light' ? 'dark' : 'light')}>
+                <IconButton variant="ghost" onClick={toggleColorMode} icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />} aria-label={'Set theme to'.concat(' ', colorMode === 'light' ? 'dark' : 'light')} />
+              </Tooltip>
               <a href='https://github.com/jacobhq/app-launcher'>
                 <Button>Star on github</Button>
               </a>
