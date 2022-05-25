@@ -22,7 +22,7 @@ export default function Home() {
               <Tooltip label={'Set theme to'.concat(' ', colorMode === 'light' ? 'dark' : 'light')} aria-label={'Set theme to'.concat(' ', colorMode === 'light' ? 'dark' : 'light')}>
                 <IconButton variant="ghost" onClick={toggleColorMode} icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />} aria-label={'Set theme to'.concat(' ', colorMode === 'light' ? 'dark' : 'light')} />
               </Tooltip>
-              <a href='https://github.com/jacobhq/app-launcher'>
+              <a href='https://startrack.vercel.app/jacobhq/app-launcher'>
                 <Button>Star on github</Button>
               </a>
             </ButtonGroup>
